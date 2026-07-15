@@ -5,7 +5,7 @@ list of government/public-sector contract opportunities. Built as a technical
 assessment for VendorReach AI's Full-Stack Developer role.
 
 **Live app:** https://vendorreach-opportunity-matcher.vercel.app
-**API:** _TODO: add Render URL after backend deploy_
+**API:** https://vendorreach-opportunity-matcher.onrender.com (free tier — first request after idle may take 30-60s to cold start)
 
 ## What was built
 
