@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OpportunityForm } from "@/components/OpportunityForm";
 import { ResultsList } from "@/components/ResultsList";
-import { ApiError, fetchMatches, type MatchRequest, type MatchResponse } from "@/lib/api";
+import {
+  ApiError,
+  fetchMatches,
+  wakeBackend,
+  type MatchRequest,
+  type MatchResponse,
+} from "@/lib/api";
 
 function App() {
   const [results, setResults] = useState<MatchResponse | null>(null);
   const [lastQuery, setLastQuery] = useState<{ industry: string; state: string } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    wakeBackend();
+  }, []);
 
   async function handleSubmit(payload: MatchRequest) {
     setIsLoading(true);

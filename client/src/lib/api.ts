@@ -30,6 +30,10 @@ export class ApiError extends Error {
   }
 }
 
+export function wakeBackend(): void {
+  fetch(`${API_URL}/api/health`).catch(() => {});
+}
+
 export async function fetchMatches(payload: MatchRequest): Promise<MatchResponse> {
   const res = await fetch(`${API_URL}/api/match`, {
     method: "POST",
